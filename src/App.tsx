@@ -4,6 +4,10 @@ import { Layout } from "./layout";
 import { AgeGroupsPage } from "./pages/AgeGroupsPage";
 import { Url } from "./types/enums";
 import QuestionsPage from "./pages/QuestionsPage/QuestionsPage";
+import { CategoriesPage } from "./pages/CategoriesPage";
+import { InfantsNeedCarePage } from "./pages/InfantsNeedCarePage";
+import { UserPage } from "./pages/Userpage";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
 
@@ -17,7 +21,7 @@ function App() {
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/" element={
             <Layout>
-              <h1>Home</h1>
+              <HomePage/>
             </Layout>} 
           />
         </Route>
@@ -35,6 +39,27 @@ function App() {
             </Layout>} 
           />
         </Route>
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path={Url.categories} element={
+            <Layout>
+              <CategoriesPage/>
+            </Layout>} 
+          />
+        </Route>
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path={Url.infantsNeedCare} element={
+            <Layout>
+              <InfantsNeedCarePage />
+            </Layout>} 
+          />
+        </Route>
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path={Url.users} element={
+            <Layout>
+              <UserPage />
+            </Layout>} 
+          />
+        </Route> 
         <Route path="*" element={<h1>404 NOT FOUND</h1>} />
       </Routes>
     </Router>
