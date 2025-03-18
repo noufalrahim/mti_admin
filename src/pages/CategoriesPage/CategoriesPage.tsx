@@ -12,6 +12,7 @@ import { DialogModal } from '@/components/DialogModal';
 import QuestionForm from '../QuestionsPage/form';
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from 'lucide-react';
+import CategoryForm from './form';
 
 export default function CategoriesPage() {
   const { data, isLoading, error, refetch } = useFetchData<CategoryType[]>("category", "/category");
@@ -26,7 +27,7 @@ export default function CategoriesPage() {
       </AppBar>
           <Table<CategoryType> columnDefs={CategoryColumns} rowData={data} />
                 <DialogModal open={open} setOpen={setOpen} title="Category" description="Add a new Category">
-                 
+        <CategoryForm refetch={refetch} setOpen={setOpen}/>
                 </DialogModal>
         </div>
   )

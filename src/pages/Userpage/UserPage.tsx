@@ -8,6 +8,8 @@ import { UserType } from '@/types/UserType'
 import { PlusIcon } from 'lucide-react'
 import React, { useState } from 'react'
 import { data } from 'react-router-dom'
+import UserForm from './form'
+
 
 function UserPage() {
   const { data, isLoading, error, refetch } = useFetchData<UserType[]>("users", "/users");
@@ -26,7 +28,7 @@ function UserPage() {
         <Table<UserType> columnDefs={userColumns} rowData={data} />
           
              <DialogModal open={open} setOpen={setOpen} title="Users" description="Add a new Users">
-                             
+                         <UserForm refetch={refetch} setOpen={setOpen}/>     
                             </DialogModal>
             
             
