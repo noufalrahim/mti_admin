@@ -29,6 +29,11 @@ export const adminNavItems: NavItemsType[] = [
         icon: MessageCircleCode
     },
     {
+        title: "milestones",
+        url: Url.milestones,
+        icon: MessageCircleCode
+    },
+    {
         title: "Age Groups",
         url: Url.ageGroups,
         icon: ListOrdered

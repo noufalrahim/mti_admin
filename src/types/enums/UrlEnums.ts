@@ -4,5 +4,6 @@ export enum Url {
     questions = '/questions',
     users = '/users',
     ageGroups = '/age-groups',
-    infantsNeedCare = '/infants-need-care'
+    infantsNeedCare = '/infants-need-care',
+    milestones='/milestones'
 }

@@ -8,6 +8,7 @@ import { CategoriesPage } from "./pages/CategoriesPage";
 import { InfantsNeedCarePage } from "./pages/InfantsNeedCarePage";
 import { UserPage } from "./pages/Userpage";
 import { HomePage } from "./pages/HomePage";
+import { MilestonesPage } from "./pages/milestones";
 
 function App() {
 
@@ -60,6 +61,13 @@ function App() {
             </Layout>} 
           />
         </Route> 
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path={Url.milestones} element={
+            <Layout>
+              <MilestonesPage />
+            </Layout>} 
+          />
+        </Route>
         <Route path="*" element={<h1>404 NOT FOUND</h1>} />
       </Routes>
     </Router>
