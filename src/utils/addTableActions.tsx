@@ -1,5 +1,5 @@
 import { ColumnType } from "@/types/ColumnType";
-import { Edit2, Trash } from "lucide-react";
+import { Edit3, Trash2 } from "lucide-react";
 
 /**
  * Adds Edit and Delete actions to a table's column definitions.
@@ -14,8 +14,8 @@ export function addTableActions<T>(columns: ColumnType<T>): ColumnType<T> {
             headerName: "Actions",
             cellRenderer: ({ data }: { data: T }) => (
                 <div className="flex gap-5 items-center justify-center h-full">
-                    <Edit2 onClick={() => handleEdit<T>(data)} className="text-primary-main cursor-pointer"/>
-                    <Trash onClick={() => handleDelete<T>(data)} className="text-red-500 cursor-pointer"/>
+                    <Edit3 onClick={() => handleEdit<T>(data)} className="text-primary-main cursor-pointer"/>
+                    <Trash2 onClick={() => handleDelete<T>(data)} className="text-red-500 cursor-pointer"/>
                 </div>
             ),
             sortable: false,

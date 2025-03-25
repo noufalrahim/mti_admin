@@ -104,7 +104,7 @@ export default function QuestionForm(
                                 <SelectContent className='bg-white'>
                                     {
                                         ageGroupsData && ageGroupsData.map((ageGroup) => (
-                                            <SelectItem value={ageGroup.id!.toString()} key={ageGroup.id!}>{`${ageGroup.startAge} Months - ${ageGroup.endAge} Months`}</SelectItem>
+                                            <SelectItem value={ageGroup.id!.toString()} key={ageGroup.id!}>{`${ageGroup?.startAge} Months - ${ageGroup?.endAge} Months`}</SelectItem>
                                         ))
                                     }
                                 </SelectContent>

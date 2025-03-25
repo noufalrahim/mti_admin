@@ -22,7 +22,7 @@ export const questionColumns: ColumnType<QuestionType> = [
     {
         field: "ageGroup",
         headerName: "Age group",
-        valueFormatter: (params) => `${params.data?.ageGroup.startAge} Months - ${params.data?.ageGroup.endAge} Months`
+        valueFormatter: (params) => `${params.data?.ageGroup?.startAge} Months - ${params.data?.ageGroup?.endAge} Months`
     },
     {
         field: "category.name",
@@ -35,8 +35,8 @@ export const questionColumns: ColumnType<QuestionType> = [
             const severity = params.value;
             const sev = severityData[severity - 1];
             return (
-                <Badge className={cn(sev.bg, sev.color, 'px-5 rounded-full text-white')}>
-                    {sev.label}
+                <Badge className={cn(sev?.bg, sev?.color, 'px-5 rounded-full text-white')}>
+                    {sev?.label}
                 </Badge>
             );
         }

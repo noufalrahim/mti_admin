@@ -12,7 +12,7 @@ import QuestionForm from "./form";
 export default function QuestionsPage() {
 
   const { data, isLoading, error, refetch } = useFetchData<QuestionType[]>("questions", "/questions");
-
+  console.log(data);
   const [open, setOpen] = useState<boolean>(false);
 
   return (
