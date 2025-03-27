@@ -4,5 +4,6 @@ export type ChildType = {
     name:string;
     dateOfBirth:Date;
     premature?:boolean;
+    severity?: number;
     weekOfPrematurity?:number;
 }

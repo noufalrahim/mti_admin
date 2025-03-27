@@ -8,6 +8,7 @@ import { CategoriesPage } from "./pages/CategoriesPage";
 import { InfantsNeedCarePage } from "./pages/InfantsNeedCarePage";
 import { UserPage } from "./pages/Userpage";
 import { HomePage } from "./pages/HomePage";
+import { MoreInfoPage } from "./pages/MoreInfoPage";
 
 function App() {
 
@@ -57,6 +58,13 @@ function App() {
           <Route path={Url.users} element={
             <Layout>
               <UserPage />
+            </Layout>} 
+          />
+        </Route> 
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path={'/more-info'} element={
+            <Layout>
+              <MoreInfoPage />
             </Layout>} 
           />
         </Route> 
