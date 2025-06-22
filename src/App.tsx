@@ -22,52 +22,54 @@ function App() {
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/" element={
             <Layout>
-              <HomePage/>
-            </Layout>} 
+              <HomePage />
+            </Layout>}
           />
         </Route>
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path={Url.ageGroups} element={
             <Layout>
-              <AgeGroupsPage/>
-            </Layout>} 
+              <AgeGroupsPage />
+            </Layout>}
           />
         </Route>
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path={Url.questions} element={
             <Layout>
-              <QuestionsPage/>
-            </Layout>} 
+              <QuestionsPage />
+            </Layout>}
           />
         </Route>
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path={Url.categories} element={
             <Layout>
-              <CategoriesPage/>
-            </Layout>} 
-          />
-        </Route>
-        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
-          <Route path={Url.infantsNeedCare} element={
-            <Layout>
-              <InfantsNeedCarePage />
-            </Layout>} 
+              <CategoriesPage />
+            </Layout>}
           />
         </Route>
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path={Url.users} element={
             <Layout>
               <UserPage />
-            </Layout>} 
+            </Layout>
+          }
           />
-        </Route> 
+        </Route>
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path={Url.infantsNeedCare} element={
+            <Layout>
+              <InfantsNeedCarePage />
+            </Layout>}
+          />
+        </Route>
+
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route path={'/more-info'} element={
             <Layout>
               <MoreInfoPage />
-            </Layout>} 
+            </Layout>}
           />
-        </Route> 
+        </Route>
         <Route path="*" element={<h1>404 NOT FOUND</h1>} />
       </Routes>
     </Router>

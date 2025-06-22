@@ -1,10 +1,10 @@
 import apiClient from "../apiClient";
 
-export const fetchData = async <T>(url: string): Promise<T> => {
+export const readData = async <T>(url: string): Promise<T> => {
     // const token = localStorage.getItem("token");
     // if (!token) {
     //     throw new Error("Unauthorized");
-    // }
+    // };
 
     try {
         const response = await apiClient.get<T>(url, {

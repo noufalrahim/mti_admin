@@ -1,45 +1,95 @@
-import { Badge } from "@/components/ui/badge";
-import { severityData } from "@/constants";
-import { cn } from "@/lib/utils";
-import { ColumnType } from "@/types/ColumnType";
-import { QuestionType } from "@/types/QuestionType";
+import { ArrowUpDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { ColumnDef } from "@tanstack/react-table";
+import { QuestionType } from "@/types";
 
-export const questionColumns: ColumnType<QuestionType> = [
+export const questionColumn: ColumnDef<QuestionType>[] = [
     {
-        field: "sno",
-        headerName: "SNO",
-        sortable: false,
-        valueGetter: (params) => params.node && params.node.rowIndex !== null ? params.node.rowIndex + 1 : "",
+        id: "sno",
+        header: ({ table }) => (
+            <Checkbox
+                checked={
+                    table.getIsAllPageRowsSelected() ||
+                    (table.getIsSomePageRowsSelected() && "indeterminate")
+                }
+                onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+                aria-label="Select all"
+            />
+        ),
+        cell: ({ row }) => (
+            <Checkbox
+                checked={row.getIsSelected()}
+                onCheckedChange={(value) => row.toggleSelected(!!value)}
+                aria-label="Select row"
+            />
+        ),
+        enableSorting: false,
+        enableHiding: false,
     },
     {
-        field: "questionEnglish",
-        headerName: "Question English",
+        accessorKey: "questionEnglish",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            >
+                Question (English)
+                <ArrowUpDown />
+            </Button>
+        ),
+        cell: ({ row }) => <div>{row.original.questionEnglish}</div>,
     },
     {
-        field: "questionMalayalam",
-        headerName: "Question Malayalam"
+        accessorKey: "questionMalayalam",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            >
+                Question (Malayalam)
+                <ArrowUpDown />
+            </Button>
+        ),
+        cell: ({ row }) => <div>{row.original.questionMalayalam}</div>,
     },
     {
-        field: "ageGroup",
-        headerName: "Age group",
-        valueFormatter: (params) => `${params.data?.ageGroup?.startAge} Months - ${params.data?.ageGroup?.endAge} Months`
+        accessorKey: "ageGroup",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            >
+                Age Group
+                <ArrowUpDown />
+            </Button>
+        ),
+        cell: ({ row }) => <div>{`${row.original.ageGroup.startAge} - ${row.original.ageGroup.endAge}`}</div>,
     },
     {
-        field: "category.name",
-        headerName: "Category",
+        accessorKey: "severity",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            >
+                Severity
+                <ArrowUpDown />
+            </Button>
+        ),
+        cell: ({ row }) => <div>{row.original.severity}</div>,
     },
     {
-        field: "severity",
-        headerName: "Severity",
-        cellRenderer: (params: { value: number; }) => {
-            const severity = params.value;
-            const sev = severityData[severity - 1];
-            return (
-                <Badge className={cn(sev?.bg, sev?.color, 'px-5 rounded-full text-white')}>
-                    {sev?.label}
-                </Badge>
-            );
-        }
-    }
-    
+        accessorKey: "category",
+        header: ({ column }) => (
+            <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            >
+                Category
+                <ArrowUpDown />
+            </Button>
+        ),
+        cell: ({ row }) => <div>{row.original.category.name}</div>,
+    },
 ];

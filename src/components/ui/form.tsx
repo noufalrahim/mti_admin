@@ -12,6 +12,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import { ID } from "@/types"
 
 const Form = FormProvider
 
@@ -63,7 +64,7 @@ const useFormField = () => {
 }
 
 type FormItemContextValue = {
-  id: string
+  id: ID
 }
 
 const FormItemContext = React.createContext<FormItemContextValue>(
